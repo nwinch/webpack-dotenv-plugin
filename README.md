@@ -11,12 +11,12 @@ working with webpack for frontend projects.
 ## Install
 
 ```
-npm i webpack-dotenv-plugin
+npm i --save-dev webpack-dotenv-plugin
 ```
 
 ## Usage
 
-`DotenvPlugin` uses [`dotenv-safe`](https://github.com/rolodato/dotenv-safe)
+`webpack-dotenv-plugin` uses [`dotenv-safe`](https://github.com/rolodato/dotenv-safe)
 under the hood to read and check environment variables. The same options that
 can be passed to `dotenv-safe` can be passed to this plugin.
 
@@ -25,7 +25,7 @@ stringified `process.env` so it can be bundled for use with webpack.
 
 ```js
 // webpack.config.js
-const DotenvPlugin = require('./dotenv-safe.plugin');
+const DotenvPlugin = require('webpack-dotenv-plugin');
 
 module.exports = {
   ...
