@@ -1,0 +1,32 @@
+{
+  "name": "webpack-dotenv-plugin",
+  "version": "1.0.0",
+  "description": "Use dotenv with webpack.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nwinch/webpack-dotenv-plugin.git"
+  },
+  "keywords": [
+    "webpack",
+    "dotenv",
+    "dot",
+    "env",
+    "environment",
+    "variables",
+    "plugin"
+  ],
+  "author": "Nathan Winch <nwinch@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nwinch/webpack-dotenv-plugin/issues"
+  },
+  "homepage": "https://github.com/nwinch/webpack-dotenv-plugin#readme",
+  "dependencies": {
+    "dotenv-safe": "^2.3.1",
+    "webpack": "^1.13.0"
+  }
+}
