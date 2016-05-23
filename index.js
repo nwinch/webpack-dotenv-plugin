@@ -11,8 +11,17 @@ function DotenvPlugin(options) {
 
 DotenvPlugin.prototype.apply = function(compiler) {
   const plugin = Object.keys(this.env).reduce((definitions, key) => {
+    const existing = process.env[key];
+
+    if (existing) {
+      definitions[`process.env.${key}`] = JSON.stringify(existing);
+      return definitions;
+    };
+
     const value = this.env[key];
-    definitions[`process.env.${key}`] = value ? JSON.stringify(value) : 'undefined';
+    if (value) {
+      definitions[`process.env.${key}`] = JSON.stringify(value);
+    }
     return definitions;
   }, {});
 
