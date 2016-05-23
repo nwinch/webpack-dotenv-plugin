@@ -23,6 +23,8 @@ can be passed to `dotenv-safe` can be passed to this plugin.
 It then reads, parses and exports the listed env vars from `.env` into
 stringified `process.env` so it can be bundled for use with webpack.
 
+Externally set environment variables will override vars set in `.env`.
+
 ```js
 // webpack.config.js
 const DotenvPlugin = require('webpack-dotenv-plugin');
