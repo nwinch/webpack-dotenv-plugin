@@ -16,12 +16,11 @@ DotenvPlugin.prototype.apply = function(compiler) {
     if (existing) {
       definitions[`process.env.${key}`] = JSON.stringify(existing);
       return definitions;
-    };
+    }
 
     const value = this.env[key];
-    if (value) {
-      definitions[`process.env.${key}`] = JSON.stringify(value);
-    }
+    if (value) definitions[`process.env.${key}`] = JSON.stringify(value);
+
     return definitions;
   }, {});
 
