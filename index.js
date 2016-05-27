@@ -6,7 +6,7 @@ module.exports = DotenvPlugin;
 
 function DotenvPlugin(options) {
   dotenv.config(options || {});
-  this.example = dotenv.parse(fs.readFileSync('./.env.default'));
+  this.example = dotenv.parse(fs.readFileSync(options.sample));
   this.env = dotenv.parse(fs.readFileSync('./.env'));
 }
 
