@@ -6,11 +6,12 @@ module.exports = DotenvPlugin;
 
 function DotenvPlugin(options) {
   dotenv.config(options || {});
+  this.example = dotenv.parse(fs.readFileSync('./.env.example'));
   this.env = dotenv.parse(fs.readFileSync('./.env'));
 }
 
 DotenvPlugin.prototype.apply = function(compiler) {
-  const plugin = Object.keys(this.env).reduce((definitions, key) => {
+  const plugin = Object.keys(this.example).reduce((definitions, key) => {
     const existing = process.env[key];
 
     if (existing) {
