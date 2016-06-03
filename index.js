@@ -9,7 +9,9 @@ const defaultOptions = {
   path: './.env'
 };
 
-function DotenvPlugin(options = defaultOptions) {
+function DotenvPlugin(options) {
+  options = options || defaultOptions;
+
   dotenv.config(options);
   this.example = dotenv.parse(fs.readFileSync(options.sample));
   this.env = dotenv.parse(fs.readFileSync(options.path));
