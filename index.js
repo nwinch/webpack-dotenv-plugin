@@ -7,7 +7,7 @@ module.exports = DotenvPlugin;
 function DotenvPlugin(options) {
   options = options || {};
   if (!options.sample) options.sample = './.env.default';
-  if (!options.path) options.path = './env';
+  if (!options.path) options.path = './.env';
 
   dotenv.config(options);
   this.example = dotenv.parse(fs.readFileSync(options.sample));
