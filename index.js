@@ -4,13 +4,10 @@ const DefinePlugin = require('webpack').DefinePlugin;
 
 module.exports = DotenvPlugin;
 
-const defaultOptions = {
-  sample: './.env.default',
-  path: './.env'
-};
-
 function DotenvPlugin(options) {
-  options = options || defaultOptions;
+  options = options || {};
+  if (!options.sample) options.sample = './.env.default';
+  if (!options.path) options.path = './env';
 
   dotenv.config(options);
   this.example = dotenv.parse(fs.readFileSync(options.sample));
