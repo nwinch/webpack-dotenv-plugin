@@ -29,6 +29,6 @@
     "dotenv-safe": "^2.3.1"
   },
   "peerDependencies": {
-    "webpack": ">=1.13.0 <3 || ^2.1.0-beta"
+    "webpack": ">=1.13.0"
   }
 }
