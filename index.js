@@ -6,7 +6,7 @@ module.exports = DotenvPlugin;
 
 function DotenvPlugin(options) {
   options = options || {};
-  if (!options.sample) options.sample = './.env.default';
+  if (!options.sample) options.sample = './.env.sample';
   if (!options.path) options.path = './.env';
 
   dotenv.config(options);
