@@ -10,8 +10,12 @@ function DotenvPlugin(options) {
   if (!options.path) options.path = './.env';
 
   dotenv.config(options);
+
   this.example = dotenv.parse(fs.readFileSync(options.sample));
-  this.env = dotenv.parse(fs.readFileSync(options.path));
+  this.env = {};
+  if (fs.existsSync(options.path)) {
+    this.env = dotenv.parse(fs.readFileSync(options.path));
+  }
 }
 
 DotenvPlugin.prototype.apply = function(compiler) {
