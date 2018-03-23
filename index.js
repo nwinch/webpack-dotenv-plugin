@@ -9,12 +9,24 @@ function DotenvPlugin(options) {
   if (!options.sample) options.sample = './.env.sample';
   if (!options.path) options.path = './.env';
 
-  dotenv.config(options);
+  const dotenvOptions = Object.assign({}, options);
+  if (Array.isArray(dotenvOptions.path)) { dotenvOptions.path = dotenvOptions.path.shift(); }
+
+  dotenv.config(dotenvOptions);
 
   this.example = dotenv.parse(fs.readFileSync(options.sample));
   this.env = {};
-  if (fs.existsSync(options.path)) {
-    this.env = dotenv.parse(fs.readFileSync(options.path));
+  if (typeof options.path === 'string') {
+    if (fs.existsSync(options.path)) {
+      this.env = dotenv.parse(fs.readFileSync(options.path));
+    }
+  } else {
+    var self = this;
+    options.path.forEach(function(element) {
+      if (fs.existsSync(element)) {
+        Object.assign(self.env, dotenv.parse(fs.readFileSync(element)));
+      }
+    });
   }
 }
 
