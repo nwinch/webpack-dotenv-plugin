@@ -37,5 +37,5 @@ DotenvPlugin.prototype.apply = function(compiler) {
     'process.env': definitions,
   };
 
-  compiler.apply(new DefinePlugin(plugin));
+  new DefinePlugin(plugin).apply(compiler);
 };
