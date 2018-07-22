@@ -11,7 +11,10 @@ function DotenvPlugin(options) {
 
   dotenv.config(options);
 
-  this.example = dotenv.parse(fs.readFileSync(options.sample));
+  this.example = {};
+  if (fs.existsSync(options.sample)) {
+    this.example = dotenv.parse(fs.readFileSync(options.sample));
+  }
   this.env = {};
   if (fs.existsSync(options.path)) {
     this.env = dotenv.parse(fs.readFileSync(options.path));
